@@ -9,21 +9,16 @@
 #include<stdlib.h>
 
 int main() {
-    int x, y, i;
-    int flag = 0;
-    int m = 0, n = 0;
-    int a[100], b[100];
+    int x, y;
     scanf("%d %d", &x, &y);
     if(x == y) {
         printf("100");
+    }else if(x / 10 == y % 10 && x % 10 == y /10) {
+        printf("20");
+    }else if((x / 10 == y /10 || x / 10 == y % 10 ) || (x % 10 == y % 10 || y % 10 == y /10)){
+        printf("2");
     }else {
-        m = x % 10;
-        x = x / 10;
-        n = y % 10;
-        y = y % 10;
-        a[i] = m;
-        b[i] = n;
-
+        printf("0");
     }
     return 0;
 }

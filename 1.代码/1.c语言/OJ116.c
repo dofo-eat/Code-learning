@@ -31,7 +31,7 @@ int main(){
     }
     bubble_sort(arr,n);
     int a = arr[0], b = arr[1], c = arr[2];
-    if((a + b) > c && (a + c) > b && (b + c) > a) {
+    if((a + b) > c ) {
         if((a * a + b * b) > (c * c)) {
             printf("acute triangle");
         }else if((a * a + b * b) == (c * c)) {
