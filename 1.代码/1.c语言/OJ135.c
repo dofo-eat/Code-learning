@@ -7,28 +7,26 @@
 
 #include <stdio.h>
 int main() { 
-    int n;
-    scanf("%d",&n);
-    int y,m,d;
-    int a[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
-    scanf("%d %d %d",&y,&m,&d);
-    if(y%4==0&&y%100||y%400==0)
-        a[2]=29;
-    if(d==1){
-        if(m==1) {
-            y1-=1;m1=12;d1=31;
-        }else {
-            m1-=1;d1=a[m1];
+    int x;
+    scanf("%d", &x);
+    int y, m, d;
+    int a[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    scanf("%d %d %d", &y, &m, &d);
+    if((y % 4 == 0 && y % 100 != 0)|| y % 400 == 0)
+        a[2] = 29;
+    x += d;
+    while(x > a[m]) {
+        x -= a[m];
+        m++;
+        if(m > 12) {
+            y++;
+            m -= 12;
+            if((y % 4 == 0 && y % 100 != 0) || y % 400 == 0)
+                a[2] = 29;
+            else 
+                a[2] = 28;
         }
     }
-    if(d==a[m]){
-        if(m==12) {
-            y2+=1;m2=d2=1;
-        }else {
-            m2+=1;d2=1;
-        }
-    }
-    printf("%d %d %d\n",y1, m1, d1);
-    printf("%d %d %d\n",y2, m2, d2);
+    printf("%d %d %d", y, m, x);
     return 0;
 }
